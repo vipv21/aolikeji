@@ -1,0 +1,57 @@
+{template "content","header"}
+<link rel="stylesheet" href="{CSS_PATH}aoli-css/dongtai.css">
+
+
+    <div class="zj1-bigbox">
+        <div class="zj1-box">
+            <div class="zj1-one">
+                <div class="zj1-two">
+                    <div class="zj1-two-1">公司动态 &nbsp;&nbsp;&nbsp;&nbsp;Case</div>
+                        <div class="zj1-two-2" style="margin-top:9px;"><img src="{IMG_PATH}aoli-img/1/zj1-3.png">
+                            <div class="zj1-two-3"><a href="">公司动态</a></div>
+                        </div>
+                        <div class="zj1-two-2"><img src="{IMG_PATH}aoli-img/1/zj1-3.png">
+                            <div class="zj1-two-3"><a href="">通讯企业案例</a></div>
+                        </div>
+                        <div class="zj1-two-2"><img src="{IMG_PATH}aoli-img/1/zj1-3.png">
+                            <div class="zj1-two-3"><a href="">金融企业案例</a></div>
+                        </div>
+                </div>
+            {pc:content  action="lists" catid="12" order="listorder ASC" num="5"} 
+                <div class="zj1-three">
+                    <div class="zj1-three-1">最新资讯 &nbsp;&nbsp;&nbsp;&nbsp;New</div>
+                {loop $data $j}
+                    <div class="zj1-three-2" style="margin-top:10px">{date("Y-m-d $inputtime")}<br/><a href="{$j[url]}">{str_cut($j['title'],40,"")}</a></div>
+                {/loop}
+                </div>
+            {/pc}
+                <div class="zj1-four">
+                    <div class="zj1-four-1"><img src="{IMG_PATH}aoli-img/1/zj1-5.png"></div>
+                    <div class="zj1-four-2"><input type="text" value="请输入关键词"><span><a href="">搜索</a></span></div>
+                </div>
+            </div>
+
+            <div class="zj1-five">
+                <div class="zj1-six"><img src="{IMG_PATH}aoli-img/1/zj1-6.png">
+                    <div class="zj1-sixwz">你的位置：<a href="">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">{catpos($catid)}</a></div>
+                </div>
+
+            {pc:content  action="lists" catid="19" order="listorder ASC" num="1"} 
+            <div class="zj1-mid-three">
+                <ul class="zj1-mid-four">
+                {loop $data $b}
+                    <li><a href="{$b[url]}">{$b[title]}</a><span>{date("Y-m-d $inputtime")}</span></li>
+
+                {/loop}
+                </ul>
+            
+            {/pc}
+
+                <div class="zj1-fy">
+                    <div class="zj1-fywz">总数10条  当前页数：1/1 <a href="">首页</a>   上一页 <a href="">1</a>下一页  <a href="">尾页</a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{template "content","footer"}

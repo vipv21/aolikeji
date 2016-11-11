@@ -1,0 +1,44 @@
+{template "content","header"}
+<link rel="stylesheet" href="{CSS_PATH}aoli-css/gongsi.css">
+
+    <div class="zj1-bigbox">
+        <div class="zj1-box">
+            <div class="zj1-one">
+                <div class="zj1-two">
+                {pc:content  action="category" catid="11" num="2"}
+                    <div class="zj1-two-1">公司产品 &nbsp;&nbsp;&nbsp;&nbsp;About</div>
+                   {loop $data $b}
+                        <div class="zj1-two-3"><a href="{$CATEGORYS[26][url]}">傲立体彩</a></div>
+                        <div class="zj1-two-4"><a href="{$CATEGORYS[17][url]}">TFi系列产品</a></div>
+                    {/loop}
+                {/pc}
+                </div>
+                <div class="zj1-three">
+                    <div class="zj1-three-1">热门产品 &nbsp;&nbsp;&nbsp;&nbsp;New</div>
+                    <div class="zj1-three-2" style="margin-top:10px">2015/8/26<br/><a href="">分场景现场数字产品和服务分发</a></div>
+                    <div class="zj1-three-2">2015/8/26<br/><a href="">ND小伙伴</a></div>
+                    <div class="zj1-three-2">2015/8/26<br/><a href="">场景化信息服务器</a></div>
+                    <div class="zj1-three-2">2015/8/26<br/><a href="">分场景现场数字产品和服务分发</a></div>
+                    <!-- <div class="zj1-three-2">2015/8/26<br/><a href="">中国移动校园活动现场</a></div> -->
+                </div>
+                <div class="zj1-four">
+                    <div class="zj1-four-1"><img src="{IMG_PATH}aoli-img/1/zj1-5.png"></div>
+                    <div class="zj1-four-2"><input type="text" value="请输入关键词"><span><a href="">搜索</a></span></div>
+                </div>
+            </div>
+
+            <div class="zj1-five">
+                <div class="zj1-six"><img src="{IMG_PATH}aoli-img/1/zj1-6.png">
+                    <div class="zj1-sixwz">你的位置：<a href="">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="">{catpos($catid)}</a></div>
+                </div>
+         {pc:content  action="lists" catid="26" moreinfo="1" num="1"}
+           
+            {loop $data $g}
+            {$g[content]}
+            </div>
+            {/loop}
+        {/pc}
+        </div>
+    </div>
+
+{template "content","footer"}

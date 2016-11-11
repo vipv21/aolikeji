@@ -1,0 +1,45 @@
+{template "content","header"}
+<link rel="stylesheet" href="{CSS_PATH}aoli-css/guanyu.css">
+
+    <div class="zj1-bigbox">
+        <div class="zj1-box">
+            <div class="zj1-one">
+                <div class="zj1-two">
+                    <div class="zj1-two-1">关于我们 &nbsp;&nbsp;&nbsp;&nbsp;About</div>
+
+                    <div class="zj1-two-2"><img src="{IMG_PATH}aoli-img/1/zj1-3.png">
+                        <div class="zj1-two-3"><a href="{APP_PATH}/index.php?m=content&c=index&a=show&catid=16&id=15">公司业务</a></div>
+                    </div>
+
+                </div>
+            {pc:content  action="lists" catid="12" order="listorder ASC" num="5"} 
+                <div class="zj1-three">
+                    <div class="zj1-three-1"><img src="{IMG_PATH}aoli-img/1/zj1-4.png"></div>
+                {loop $data $j}    
+                    <div class="zj1-three-2" style="margin-top:10px">{date("Y-m-d $inputtime")}<br/><a href="{$j[url]}">{str_cut($j['title'],40,"")}</a></div>
+                {/loop}
+                </div>
+            {/pc}
+                <div class="zj1-four">
+                    <div class="zj1-four-1"><img src="{IMG_PATH}aoli-img/1/zj1-5.png"></div>
+                    <div class="zj1-four-2"><input type="text" value="请输入关键词"><span><a href="">搜索</a></span></div>
+                </div>
+            </div>
+
+            <div class="zj1-five">
+                <div class="zj1-six"><img src="{IMG_PATH}aoli-img/1/zj1-6.png">
+                    <div class="zj1-sixwz">你的位置：<a href="">首页 > 关于我们</a></div>
+                </div>
+                    <div class="zj1-seven">
+        {pc:content  action="lists" catid="10" oeder="listorder ASC" num="1" moreinfo="1"}
+            {loop $data $v}
+                {$v[content]}
+                    </div>
+                </div>
+            {/loop}
+        {/pc}
+            </div>
+        </div>
+    </div>
+
+{template "content","footer"}

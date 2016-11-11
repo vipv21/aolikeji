@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+    <link rel="stylesheet" href="{CSS_PATH}aoli-css/index.css">
+    <script src="{JS_PATH}js/jquery-1.12.4.min.js"></script>
+    <script src="{JS_PATH}js/index.js"></script>
+</head>
+<body>
+<!-- 顶部top区 -->       
+    <div class="top-bigbox">
+        <div class="topbox">
+            <div class="topleft"><a href="{siteurl($siteid)}"><img src="{IMG_PATH}aoli-img/top-1.png"></a></div>
+            <div class="topright"><img src="{IMG_PATH}aoli-img/top-2.png"></div>
+        </div>
+    </div>
+<!-- 导航区 -->
+    <div class="nav-bigbox">
+    {pc:content action="category" catid="" num="20"}<!--一级栏目-->
+        <div class="navbox">
+            <div class="nav"><a href="{siteurl($siteid)}">网站首页</a></div>
+        {loop $data $c}
+            <div class="nav"><a href="{$c[url]}">{$c[catname]}</a>
+
+        {pc:content action="category" catid="$c[catid]"}<!--二级栏目-->
+            {loop $data $d}
+                <div class="navwz"><a href="{$d[url]}">{$d[catname]}</a></div>
+            {/loop}
+        {/pc}
+            </div>
+
+        {/loop}
+        </div>
+    {/pc}
+    </div>
